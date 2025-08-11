@@ -1,22 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Register New Hire";
-
-    var claims = ViewData["userProfile"] as List<OnboardWithTAP.Models.NewHireProfileClaim>;
-    }
-    @if (claims != null)
-    {
-        foreach (var claim in claims)
-        {
-            <tr>
-                <td style="text-align: left">@claim.Label</td>
-                <td style="text-align: left">
-                    <input id="@claim.InternalName" name="@claim.InternalName"
-                        style="width:300px" type="@claim.Type" value="@claim.Value"
-                        placeholder="@claim.Placeholder" @(claim.ReadOnly ? "readonly" : "") />
-                </td>
-            </tr>
-        }
-
 }
 
 <div class="text-center">
