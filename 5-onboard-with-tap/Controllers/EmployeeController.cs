@@ -620,5 +620,29 @@ namespace OnboardWithTAP.Controllers
             return request;
         }
 
+            
+        private void SetUserProfileClaims()
+        {
+            // however the sample builds the list:
+            ViewData["userProfile"] = NewHireProfileClaim.BuildDefaultClaims(Configuration);
+        }
+
+        public IActionResult RegisterNewHire()
+        {
+            SetUserProfileClaims();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GenerateOnboardingLink(NewHireForm form)
+        {
+            // ... do your work to generate link ...
+            SetUserProfileClaims(); // <— re-populate before returning the view again
+            return View("RegisterNewHire");
+        }
+
+
+
+
     } // cls
 } // ns
