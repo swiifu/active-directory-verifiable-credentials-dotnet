@@ -25,7 +25,10 @@
                 <th style="text-align:left">Value</th>
             </thead>
             <tbody>
-                    @foreach (var claim in ViewData["userProfile"] as List<OnboardWithTAP.Models.NewHireProfileClaim>) {
+                @{
+                    var claims = ViewData["userProfile"] as List<OnboardWithTAP.Models.NewHireProfileClaim> ?? new List<OnboardWithTAP.Models.NewHireProfileClaim>();
+                }
+                @foreach (var claim in claims) {
                 <tr>
                     <td style="text-align: left">@claim.Label</td>
                     <td style="text-align: left">
